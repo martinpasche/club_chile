@@ -166,7 +166,8 @@ if DEBUG:
     ]
 
 else:
-    ALLOWED_HOSTS = ["https://django.clubchilien.xyz"]
+    ALLOWED_HOSTS = ["https://django.clubchilien.xyz",
+                     "django.clubchilien.xyz"]
     
     CORS_ALLOWED_ORIGINS = [
         "https://django.clubchilien.xyz",
