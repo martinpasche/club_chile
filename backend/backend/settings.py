@@ -208,7 +208,6 @@ REST_FRAMEWORK = {
 AUTH_USER_MODEL = "user.ChileanUser"
 CSRF_COOKIE_NAME = "csrftoken"
 ROOT_URLCONF = "backend.urls"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
@@ -216,10 +215,3 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = "/static/"
 
-
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
