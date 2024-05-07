@@ -184,9 +184,7 @@ else:
     
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-    
-    STATIC_ROOT = os.path.join('home', 'clubxkhj', 'public_html', 'static')
-    
+    STATIC_ROOT = '/home/clubxkhj/public_html/static/'
     
         
     
