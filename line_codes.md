@@ -387,3 +387,11 @@ npm install dayjs chartjs-adapter-dayjs-4 --save
 
 # Deployment
 
+    python manage.py check --deploy
+    
+Hay que settear el wsgi. Hay una variable que se llama application y hay que darsela al servidor.
+
+No olvidar el debug.
+
+Hay que definir donde estarán los archivos estaticos.
+
