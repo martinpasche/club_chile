@@ -1,0 +1,31 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+.error-appear {
+  flex : 0.0001;
+  
+  -webkit-animation: flexGrow 500ms ease-in-out forwards;
+  -o-animation: flexGrow 500ms ease-in-out forwards;
+  animation: flexGrow 500ms ease-in-out forwards;
+}
+
+
+@-webkit-keyframes flexGrow {
+  to {
+    flex: 1;
+  }
+}
+@-o-keyframes flexGrow {
+  to {
+    flex: 1;
+  }
+}
+@keyframes flexGrow {
+  to {
+    flex: 1;
+  }
+}
