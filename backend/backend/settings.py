@@ -181,7 +181,7 @@ else:
     SESSION_COOKIE_SECURE = True
     STATIC_ROOT = '/home/clubxkhj/public_html/static'
     MEDIA_ROOT = "/home/clubxkhj/public_html/media"
-    STATICFILES_DIRS = [ os.path.join( BASE_DIR , "assets"),]
+    # STATICFILES_DIRS = [ os.path.join( BASE_DIR , "assets"),]
     
         
     
