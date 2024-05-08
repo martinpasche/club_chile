@@ -62,6 +62,7 @@ export default function Root () {
                 navigate("/");
             }).catch( (error) => {
                 console.log("handle logout:", error);
+                setIsLogged(false);
                 navigate("/");
             })
     }
