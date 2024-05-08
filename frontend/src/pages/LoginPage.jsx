@@ -34,6 +34,9 @@ const LoginPage = () => {
             }
             else {
                 console.log("Returned data.user is undefined or null");
+                console.log("request ", response);
+                console.log("data.user", response.data.user);
+                
                 throw new Error("");
             }
             
