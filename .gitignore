@@ -11,7 +11,7 @@ scripts/flow/*/.flowconfig
 .grunt
 _SpecRunner.html
 __benchmarks__
-build/
+
 remote-repo/
 coverage/
 .module-cache
@@ -91,7 +91,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
 dist/
 downloads/
