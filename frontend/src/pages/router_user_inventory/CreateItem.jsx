@@ -20,6 +20,7 @@ const CreateItem = () => {
 
     
     console.log("cookie", csrftoken);
+    console.log("cookie2", document.cookie);
     
     const handleSubmit = async (e) => {
         e.preventDefault();
