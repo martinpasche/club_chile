@@ -58,6 +58,7 @@ const RegisterPage = () => {
             
         } catch (error) {
             console.log("Error registration ");
+            console.log(error);
             setPassword1("");
             setPassword2("");
             if (error.response && error.response.data && error.response.data.detail) {
