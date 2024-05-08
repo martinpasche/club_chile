@@ -391,7 +391,44 @@ npm install dayjs chartjs-adapter-dayjs-4 --save
     
 Hay que settear el wsgi. Hay una variable que se llama application y hay que darsela al servidor.
 
-No olvidar el debug.
+No olvidar el debug y definir el LOCAL_HOST
+
+    ALLOWED_HOSTS = ["https://django.clubchilien.xyz",
+                     "django.clubchilien.xyz"]
+    
+    CORS_ALLOWED_ORIGINS = [
+        "https://django.clubchilien.xyz",
+    ]
+
+    CORS_ORIGIN_WHITELIST = [
+        "https://django.clubchilien.xyz",
+    ]
+
+
+    CSRF_TRUSTED_ORIGINS = [
+        "https://django.clubchilien.xyz",
+    ]
+    
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    STATIC_ROOT = '/home/clubxkhj/public_html/static'
+    MEDIA_ROOT = "/home/clubxkhj/public_html/media"
+
 
 Hay que definir donde estarán los archivos estaticos.
 
+Use whitenoise para que te maneje los static files
+
+    pip install whitenoise
+    
+Es necesario revisar su pagina web para settearlo.
+
+
+Luego, para el react:
+
+Primero agregar en package.json
+
+    "name": "frontend",
+    "homepage" : "https://clubchilien.xyz",
+    
+Luego tenemos que hace el build. Pero creo que primero, antes que todo, instalar las versiones con npm install
