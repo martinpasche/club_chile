@@ -1,13 +1,9 @@
 import React, {useState, useContext} from "react";
-import axios from "axios";
 import { Form, redirect, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";    
 import { AuthContext } from "../root";
 import ErrorMessageAccount from "../components/ErrorMessageAccount";
-
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-axios.defaults.withCredentials = true;
+import API from "../api.js";
 
 
 const LoginPage = () => {
@@ -23,7 +19,7 @@ const LoginPage = () => {
         request.preventDefault();
         console.log("handle submit");
         try {
-            const response = await axios.post( 
+            const response = await API.post( 
                 "api-user/login/", 
                 {
                     email : email,

@@ -1,20 +1,16 @@
 import React, {useContext} from 'react';
 import { Link, Navigate, useNavigate, useLoaderData, redirect, Form } from "react-router-dom";
-import axios from 'axios';
+import API from '../../api.js';
 import { AuthContext } from '../../root.jsx';
 import ItemUserCard from '../../components/ItemUserCard.tsx';
 import AddItemSymbol from '../../components/AddItemSymbol.jsx';
 
 
-axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.useCredentials = true;
-
 
 export async function loader (){
     
     try {
-        const response = await axios.get('/api-inventory/user-inventory', {});
+        const response = await API.get('/api-inventory/user-inventory', {});
         return response.data ;
         
     } catch (error) {

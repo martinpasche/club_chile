@@ -1,14 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../api.js";
 import { AuthContext } from "../root";
 import ImageUploader from '../components/ProfileImageUploader.tsx';
 import ErrorMessageAccount from '../components/ErrorMessageAccount.jsx';
-
-
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-axios.defaults.withCredentials = true;
 
 
 
@@ -60,7 +55,7 @@ const AccountPage = () => {
                 formData.append("password1", password1);
                 formData.append("password2", password2);
                 
-                const response = await axios.post(
+                const response = await API.post(
                     "api-user/update/",
                     formData,
                 );

@@ -1,21 +1,17 @@
 import React, {useContext, useState} from "react";
 import { useLoaderData } from "react-router-dom";
-import axios from "axios";
+import API from "../../api.js";
 import { AuthContext } from "../../root";
 import { useNavigate } from "react-router-dom";
 import ImageUploader from "../../components/ItemImageUploader";
 import ErrorMessageAccount from "../../components/ErrorMessageAccount.jsx";
-
-axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.useCredentials = true;
 
 
 
 export async function loader ({params}){
     
     try { 
-        const response = await axios.get(`/api-inventory/item/${params.itemId}/`, {});
+        const response = await API.get(`/api-inventory/item/${params.itemId}/`, {});
         return response.data ;
     } 
     catch (error) {
@@ -56,7 +52,7 @@ const UpdateItem = () => {
             }
             
             
-            const response = await axios.put(`/api-inventory/item/${itemId}/`, formData, 
+            const response = await API.put(`/api-inventory/item/${itemId}/`, formData, 
             { headers: 
                 {
                 'Content-Type': 'multipart/form-data' }

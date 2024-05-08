@@ -4,12 +4,10 @@ import instaImg from './svg/instagram-svgrepo-com.svg';
 import linkcs from './svg/linkcs_logo.svg';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import React, {useEffect, useState, createContext} from 'react';
-import axios from 'axios';
+import API from './api.js';
 
 
-axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.useCredentials = true;
+
 
 const media_path = "https://django.clubchilien.xyz"
 const user_default_state = {
@@ -45,7 +43,7 @@ export default function Root () {
     
     
     const handleLogout = async (e) => {
-        axios
+        API
             .post(
                 "/api-user/logout/", {}
             ).then( (response) => {
@@ -83,7 +81,7 @@ export default function Root () {
         /* 
         Cual será otra tecnica para verificar si el usuario esta logeado?
         */
-        axios
+        API
             .get("/api-user/user/", {})
             .then( (response) => {
                 console.log("response", response);
