@@ -2,8 +2,8 @@ import maoiImg from './svg/moai-chile-svgrepo-com.svg';
 import chileFlag from './svg/flag-for-flag-chile-svgrepo-com.svg';
 import instaImg from './svg/instagram-svgrepo-com.svg';
 import linkcs from './svg/linkcs_logo.svg';
-import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
-import React, {useEffect, useState, useContext, createContext} from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+import React, {useEffect, useState, createContext} from 'react';
 import axios from 'axios';
 
 
@@ -11,32 +11,37 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.useCredentials = true;
 
-
+const media_path = "https://django.clubchilien.xyz"
+const user_default_state = {
+    username : null,
+    first_name : null,
+    last_name : null,
+    email : null,
+    profile_pic : null,
+}
 
 export const AuthContext = createContext(null);
 
 
 export default function Root () {
 
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(user_default_state);
     const [isLogged, setIsLogged] = useState(false);
     const navigate = useNavigate()
-    const location = useLocation();
 
 
     /* we want to control the top navbar */
     const [prevScrollPos, setPrevScrollPos] = useState(0);
-    const [visibleNavBar, setVisibleNavBar] = useState(true);
-
-    const handleScroll = () => {
-        const currentScrollPos = window.scrollY;
-        if (currentScrollPos > prevScrollPos) {     
-            setVisibleNavBar(false);
-        } else {
-            setVisibleNavBar(true);
-        }
-        setPrevScrollPos(currentScrollPos);    
-    }
+    const [visibleNavBar, setVisibleNavBar] = useState(true);  
+    
+    
+    
+    console.log("User",user);
+    console.log("profile pic", user.profile_pic);
+    console.log("isLogged", isLogged);
+    
+    
+    
     
     
     const handleLogout = async (e) => {
@@ -45,7 +50,7 @@ export default function Root () {
                 "/api-user/logout/", {}
             ).then( (response) => {
                 console.log("Logout successful");
-                setUser(null);
+                setUser(user_default_state);
                 setIsLogged(false);
                 
                 navigate("/");
@@ -81,14 +86,23 @@ export default function Root () {
         axios
             .get("/api-user/user/", {})
             .then( (response) => {
-                setIsLogged(true);
-                setUser(response.data.user);
+                console.log("response", response);
+                
+                if (response.data.user === undefined || response.data.user === null) {
+                    setIsLogged(false);
+                    setUser(user_default_state);
+                }
+                else {
+                    setIsLogged(true);
+                    setUser(response.data.user);
+                }
+                
             })
             .catch( (error) => {
                 setIsLogged(false);
                 console.log("User not logged in");
             })
-    }, [setUser, setIsLogged, isLogged]);
+    }, [user, isLogged]);
 
 
     return (
@@ -155,7 +169,7 @@ export default function Root () {
                     <div tabIndex={0} role="button" className="btn btn-ghost m-1">
                         {
                             user !== null && user.profile_pic !== null ?
-                            <img src={"http://127.0.0.1:8000" + user.profile_pic} className="size-9 rounded-full border-2 border-black" alt="Profile pic"/>
+                            <img src={media_path + user.profile_pic} className="size-9 rounded-full border-2 border-black" alt="Profile pic"/>
                             :
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.7} stroke="currentColor" className="size-9">
                                 <path strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
