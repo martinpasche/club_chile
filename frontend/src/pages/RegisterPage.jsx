@@ -19,7 +19,7 @@ const RegisterPage = () => {
     const [password2, setPassword2] = useState("");
     const [error, setError] = useState('');
     const navigation = useNavigate();
-    const {isLogged, loginInReact, logoutInReact} = useContext(AuthContext);
+    const {isLogged, setIsLogged} = useContext(AuthContext);
 
 
     const handleSubmit = async (request) => {
@@ -55,6 +55,7 @@ const RegisterPage = () => {
                         password : password1
                     }
             );
+            setIsLogged(true);
             navigation("/");
             
         } catch (error) {

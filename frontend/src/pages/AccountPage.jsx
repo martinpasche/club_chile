@@ -66,6 +66,7 @@ const AccountPage = () => {
                 } else{
                     console.log("User updated successfully");
                     setUser(response.data);
+                    localStorage.setItem("user", JSON.stringify(response.data));
                     navigation("/");
                 }
                 

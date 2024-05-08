@@ -50,7 +50,7 @@ export default function Root () {
                 console.log("Logout successful");
                 setUser(user_default_state);
                 setIsLogged(false);
-                
+                localStorage.removeItem("user");
                 navigate("/");
             }).catch( (error) => {
                 console.log(error);
@@ -71,36 +71,43 @@ export default function Root () {
             }
             setPrevScrollPos(currentScrollPos);    
         }
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [prevScrollPos]);
 
 
     useEffect(() => {
-        /* 
-        Cual será otra tecnica para verificar si el usuario esta logeado?
-        */
-        API
-            .get("/api-user/user/", {})
-            .then( (response) => {
-                console.log("response", response);
-                
-                if (response.data.user === undefined || response.data.user === null) {
+        
+        const storedUser = localStorage.getItem("user");
+        if (storedUser){
+            setUser(JSON.parse(storedUser));
+            setIsLogged(true);
+        }else {
+            
+            if (isLogged) {
+                API
+                .get("/api-user/user/", {})
+                .then( (response) => {
+                    console.log("response", response);
+                    
+                    if (response.data.user === undefined || response.data.user === null) {
+                        setIsLogged(false);
+                    }
+                    else {
+                        setIsLogged(true);
+                        setUser(response.data.user);
+                        localStorage.setItem("user", JSON.stringify(response.data.user));
+                    }
+                })
+                .catch( (error) => {
                     setIsLogged(false);
-                    setUser(user_default_state);
-                }
-                else {
-                    setIsLogged(true);
-                    setUser(response.data.user);
-                }
-                
-            })
-            .catch( (error) => {
-                setIsLogged(false);
-                console.log("User not logged in");
-            })
-    }, [user, isLogged]);
+                    console.log("User not logged in");
+                });
+            } else {
+                return;
+            }            
+        }
+    }, []);
 
 
     return (
