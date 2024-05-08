@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "homepage" : ".",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://127.0.0.1:8000",
@@ -9,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
+    "cors": "^2.8.5",
     "lucide-react": "^0.338.0",
     "react": "^18.2.0",
     "react-cookie": "^7.1.0",
