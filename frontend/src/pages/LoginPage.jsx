@@ -26,6 +26,9 @@ const LoginPage = () => {
                     password : password
                 }
             );
+            console.log("response",response);
+            console.log("response.data", response.data);
+            
             setIsLogged(true);
             navigate("/");
             

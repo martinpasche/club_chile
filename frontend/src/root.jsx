@@ -91,7 +91,6 @@ export default function Root () {
         const storedUser = localStorage.getItem("user");
         if (storedUser){
             setUser(JSON.parse(storedUser));
-            setIsLogged(true);
         }else {
             
             if (isLogged) {
@@ -114,6 +113,7 @@ export default function Root () {
                     console.log("User not logged in");
                 });
             } else {
+                //AGREGAR LOGIN THE USUARIO
                 return;
             }            
         }
