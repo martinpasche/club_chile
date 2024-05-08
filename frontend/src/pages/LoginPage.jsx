@@ -26,7 +26,6 @@ const LoginPage = () => {
                     password : password
                 }
             );
-            
             setIsLogged(true);
             navigate("/");
             

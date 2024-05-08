@@ -116,7 +116,7 @@ export default function Root () {
                 return;
             }            
         }
-    }, []);
+    }, [isLogged]);
 
 
     return (
