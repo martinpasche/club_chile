@@ -186,8 +186,8 @@ else:
     
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-    STATIC_ROOT = '/home/clubxkhj/public_html/static'
-    MEDIA_ROOT = "/home/clubxkhj/public_html/media"
+    STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
+    MEDIA_ROOT = "/home/clubxkhj/public_html/media-django"
     
         
     
