@@ -27,30 +27,8 @@ const LoginPage = () => {
                 }
             );
             
-            //in the case that there are no exceptions
-            // that is to say, there wasn't anything wrong with 
-            //backend
-            
-            API
-                .get("/api-user/user/", {})
-                .then((response) => {
-                    if (response.data.user !== undefined && response.data.user !== null) {
-                        setUser(response.data.user);
-                        localStorage.setItem("user", JSON.stringify(response.data.user));
-                        setIsLogged(true);
-                        navigate("/");
-                    } else {
-                        console.log("Returned data.user is undefined or null");
-                        console.log("request ", response);
-                        console.log("data.user", response.data.user);
-                        throw new Error("");
-                    } 
-                })
-                .catch((error) => {
-                    setIsLogged(false);
-                    console.log("Error fetching user", error);
-                    throw new Error("");
-                });
+            isLogged(true);
+            navigate("/");
             
 
         } catch (error) {

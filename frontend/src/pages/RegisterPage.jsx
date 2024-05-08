@@ -56,6 +56,10 @@ const RegisterPage = () => {
                     }
             );
             
+            // In the case where there are no exceptions
+            isLogged(true);
+            navigate("/");
+            
 
             
         } catch (error) {
