@@ -188,6 +188,7 @@ else:
     SESSION_COOKIE_SECURE = True
     STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
     MEDIA_ROOT = "/home/clubxkhj/public_html/media-django"
+    CSRF_HEADER_NAME = "HTTP_X_CSRFTOKEN"
     
         
     

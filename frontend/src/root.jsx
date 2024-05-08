@@ -109,6 +109,7 @@ export default function Root () {
                     }
                 })
                 .catch( (error) => {
+                    localStorage.removeItem("user");
                     setIsLogged(false);
                     console.log("User not logged in");
                 });
