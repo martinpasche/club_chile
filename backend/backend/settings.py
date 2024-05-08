@@ -182,6 +182,7 @@ else:
         "https://django.clubchilien.xyz",
         "https://clubchilien.xyz",
         "https://*.clubchilien.xyz",
+        "django.clubchilien.xyz"
     ]
     
     #CSRF_COOKIE_SECURE = True
