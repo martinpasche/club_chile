@@ -26,8 +26,17 @@ const LoginPage = () => {
                     password : password
                 }
             );
-            setIsLogged(true);
-            navigate("/");
+            if (response.data.user !== undefined && response.data.user !== null) {
+                setUser(response.data.user);
+                localStorage.setItem("user", JSON.stringify(response.data.user));
+                setIsLogged(true);
+                navigate("/");
+            }
+            else {
+                console.log("Returned data.user is undefined or null");
+                throw new Error("");
+            }
+            
 
         } catch (error) {
             if (error.response && error.response.data && error.response.data.detail) {
