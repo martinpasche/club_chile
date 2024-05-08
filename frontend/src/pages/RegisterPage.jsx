@@ -29,13 +29,13 @@ const RegisterPage = () => {
             if (isLogged){
                 const response = await API.post(
                     "api-user/logout/"
-                )
+                );
             }
         } catch (error) {
             console.log("The user wasn't logged ... good", error);
         }
         
-        console.log("We try to register")
+        console.log("We try to register");
         
         try {
             const response1 = await API.post(
@@ -57,7 +57,7 @@ const RegisterPage = () => {
             );
             
             // In the case where there are no exceptions
-            isLogged(true);
+            setIsLogged(true);
             navigate("/");
             
 
