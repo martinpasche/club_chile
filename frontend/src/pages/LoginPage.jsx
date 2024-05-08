@@ -3,7 +3,17 @@ import { Form, redirect, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";    
 import { AuthContext } from "../root";
 import ErrorMessageAccount from "../components/ErrorMessageAccount";
-import API from "../api.js";
+/* import API from "../api.js"; */
+import axios from 'axios';
+
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+axios.defaults.withCredentials = true;
+
+const API = axios.create({
+  baseURL: `https://django.clubchilien.xyz`,
+  
+});
 
 
 const LoginPage = () => {
