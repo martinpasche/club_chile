@@ -29,6 +29,16 @@ const LoginPage = () => {
             console.log("response",response);
             console.log("response.data", response.data);
             
+            // Check if CSRF token is present in response cookies
+            const csrfToken = response.headers['set-cookie'].find(cookie => cookie.startsWith('csrftoken='));
+            if (csrfToken) {
+                console.log('CSRF token received:', csrfToken);
+                // CSRF token is present in response cookies
+            } else {
+                console.log('CSRF token not received');
+                // CSRF token is not present in response cookies
+            }
+            
             setIsLogged(true);
             navigate("/");
             
