@@ -247,7 +247,7 @@ else:
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
-    #CSRF_HEADER_NAME = "CSRF_COOKIE"
+    CSRF_HEADER_NAME = "CSRF_COOKIE"
     """ 
     Encontre que axios, react, en build, entrega el siguiente header:
     CSRF_HEADER_NAME = "CSRF_COOKIE"
