@@ -43,6 +43,14 @@ export default function Root () {
     
     
     const handleLogout = async (e) => {
+        
+        // we are going to check if an item exists in localstorage
+        const storedUser = localStorage.getItem("user");
+        if (storedUser){
+            localStorage.removeItem("user");
+            setIsLogged(false);
+        }
+        
         API
             .post(
                 "/api-user/logout/", {}
@@ -54,6 +62,7 @@ export default function Root () {
                 navigate("/");
             }).catch( (error) => {
                 console.log("handle logout:", error);
+                navigate("/");
             })
     }
 
