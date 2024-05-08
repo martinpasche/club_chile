@@ -167,21 +167,21 @@ else:
     
     CORS_ALLOWED_ORIGINS = [
         "https://django.clubchilien.xyz",
-        "clubchilien.xyz",
-        "https://clubchilien.xyz"
+        "https://clubchilien.xyz",
+        "https://*.clubchilien.xyz"
     ]
 
     CORS_ORIGIN_WHITELIST = [
         "https://django.clubchilien.xyz",
-        "clubchilien.xyz",
-        "https://clubchilien.xyz"
+        "https://clubchilien.xyz",
+        "https://*.clubchilien.xyz"
     ]
 
 
     CSRF_TRUSTED_ORIGINS = [
         "https://django.clubchilien.xyz",
-        "clubchilien.xyz",
         "https://clubchilien.xyz"
+        "https://*.clubchilien.xyz"
     ]
     
     CSRF_COOKIE_SECURE = True
