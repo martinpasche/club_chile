@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../root";
 import ErrorMessageAccount from "../components/ErrorMessageAccount";
 
-
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+axios.defaults.withCredentials = true;
 
 
 const LoginPage = () => {

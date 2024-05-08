@@ -1,13 +1,14 @@
 import React, {useState, useContext} from "react";
-import axios from "axios";
+/* import axios from "axios"; */
 import { redirect, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../root";
 import ErrorMessageAccount from "../components/ErrorMessageAccount.jsx";
+import API from "../api.js";
 
-axios.defaults.xsrfCookieName = 'csrftoken';
+/* axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true; */
 
 
 const RegisterPage = () => {
@@ -26,7 +27,7 @@ const RegisterPage = () => {
 
         try {
             if (isLogged){
-                const response = await axios.post(
+                const response = await API.post(
                     "api-user/logout/"
                 )
             }
@@ -37,7 +38,7 @@ const RegisterPage = () => {
         console.log("We try to register")
         
         try {
-            const response1 = await axios.post(
+            const response1 = await API.post(
                 "api-user/register/",
                 {
                     username : username,
@@ -47,7 +48,7 @@ const RegisterPage = () => {
                 }
             );
                 
-            const response2 =  await axios.post(
+            const response2 =  await API.post(
                     "api-user/login/",
                     {
                         email : email,
