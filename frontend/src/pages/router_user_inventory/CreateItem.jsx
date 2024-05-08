@@ -6,8 +6,6 @@ import ErrorMessageAccount from "../../components/ErrorMessageAccount.jsx";
 import ImageUploader from "../../components/ItemImageUploader.jsx";
 
 
-
-
 const CreateItem = () => {
     const {user, setUser, isLogged} = useContext(AuthContext);
     const [itemName, setItemName] = useState("Nombre");
@@ -37,6 +35,8 @@ const CreateItem = () => {
                 'Content-Type': 'multipart/form-data' }
             });
             
+            console.log("response", response);
+            
 
             if (response.status === 201) {
                 console.log("Item created successfully");
@@ -45,6 +45,8 @@ const CreateItem = () => {
                 console.log("Error creating item", response);
             }
         } catch (e) {
+            
+            console.log("Error creating item", e);
             
             if (e.response.data) {
                 for (const key in e.response.data) {
