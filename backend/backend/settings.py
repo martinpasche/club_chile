@@ -132,6 +132,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 if DEBUG:
     
     ALLOWED_HOSTS = ["http://localhost:3000",
+                     "http://localhost:8000",
+                     "127.0.0.1:8000",
+                     "127.0.0.1:3000",
+                     "127.0.0.1",
                      "https://django.clubchilien.xyz",
                      "django.clubchilien.xyz",
     ]
@@ -174,31 +178,7 @@ if DEBUG:
         "https://clubchilien.xyz",
         "https://*.clubchilien.xyz",
     ]
-
-else:
-    ALLOWED_HOSTS = ["https://django.clubchilien.xyz",
-                     "django.clubchilien.xyz",
-                     ]
     
-    CORS_ALLOWED_ORIGINS = [
-        "https://django.clubchilien.xyz",
-        "https://clubchilien.xyz",
-        "https://*.clubchilien.xyz",
-    ]
-
-    CORS_ORIGIN_WHITELIST = [
-        "https://django.clubchilien.xyz",
-        "https://clubchilien.xyz",
-        "https://*.clubchilien.xyz",
-    ]
-
-    CSRF_TRUSTED_ORIGINS = [
-        "https://django.clubchilien.xyz",
-        "https://clubchilien.xyz",
-        "https://*.clubchilien.xyz",
-    ]
-    
-    #CSRF_USE_SESSIONS = True   #never use. it is used sometimes for better security, but i dont recommend
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_HTTPONLY = True
@@ -207,7 +187,67 @@ else:
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
-    CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
+
+    
+
+else:
+    ALLOWED_HOSTS = ["https://django.clubchilien.xyz",
+                     "django.clubchilien.xyz",
+                     "http://localhost:3000",
+                     "http://localhost:8000",
+                     "127.0.0.1:8000",
+                     "127.0.0.1:3000",
+                     "127.0.0.1",
+                     ]
+    
+    CORS_ALLOWED_ORIGINS = [
+        "https://django.clubchilien.xyz",
+        "https://clubchilien.xyz",
+        "https://*.clubchilien.xyz",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "http://*.localhost:3000",
+        "http://*.127.0.0.1:3000",
+        "http://*.localhost:8000",
+        "http://*.127.0.0.1:8000",
+    ]
+
+    CORS_ORIGIN_WHITELIST = [
+        "https://django.clubchilien.xyz",
+        "https://clubchilien.xyz",
+        "https://*.clubchilien.xyz",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "http://*.localhost:3000",
+        "http://*.127.0.0.1:3000",
+        "http://*.localhost:8000",
+        "http://*.127.0.0.1:8000",
+    ]
+
+    CSRF_TRUSTED_ORIGINS = [
+        "https://django.clubchilien.xyz",
+        "https://clubchilien.xyz",
+        "https://*.clubchilien.xyz",
+        'http://*.localhost:3000',
+        'http://*.127.0.0.1:3000',
+        'http://*.localhost:8000',
+        'http://*.127.0.0.1:8000',
+    ]
+    
+    #CSRF_USE_SESSIONS = True   #never use. it is used sometimes for better security, but i dont recommend
+    #CSRF_COOKIE_SECURE = True
+    #SESSION_COOKIE_SECURE = True
+    #CSRF_COOKIE_HTTPONLY = True
+    STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
+    MEDIA_ROOT = "/home/clubxkhj/public_html/media-django"
+    CSRF_COOKIE_SAMESITE = "None"
+    SESSION_COOKIE_SAMESITE = "None"
+    CORS_ORIGIN_ALLOW_ALL = False
+    #CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
     
         
     
