@@ -184,9 +184,9 @@ else:
         "https://*.clubchilien.xyz",
     ]
     
-    # CSRF_USE_SESSIONS = True
-    # CSRF_COOKIE_SECURE = True
-    # SESSION_COOKIE_SECURE = True
+    CSRF_USE_SESSIONS = True
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
     # CSRF_COOKIE_HTTPONLY = True
     STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
     MEDIA_ROOT = "/home/clubxkhj/public_html/media-django"
