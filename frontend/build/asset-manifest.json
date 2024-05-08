@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.c46bd304.css",
-    "main.js": "/static/js/main.88107fd4.js",
-    "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
-    "static/media/Imagen de WhatsApp 2023-09-12 a las 22.11.54_8498568e.jpg": "/static/media/Imagen de WhatsApp 2023-09-12 a las 22.11.54_8498568e.7abaee7784d253ef7669.jpg",
-    "static/media/Imagen de WhatsApp 2023-09-12 a las 17.38.49_6f2f5aa9.jpg": "/static/media/Imagen de WhatsApp 2023-09-12 a las 17.38.49_6f2f5aa9.54e9ef710a7da44a6bca.jpg",
-    "static/media/Imagen de WhatsApp 2023-09-16 a las 22.35.29_b02b9d5e.jpg": "/static/media/Imagen de WhatsApp 2023-09-16 a las 22.35.29_b02b9d5e.cfa9179aed836c400470.jpg",
-    "static/media/Imagen de WhatsApp 2023-09-16 a las 22.35.32_075af17c.jpg": "/static/media/Imagen de WhatsApp 2023-09-16 a las 22.35.32_075af17c.4fb8387cff97d7f978f9.jpg",
-    "static/media/Imagen de WhatsApp 2023-10-25 a las 20.03.51_01266404.jpg": "/static/media/Imagen de WhatsApp 2023-10-25 a las 20.03.51_01266404.9f5563943d0392669707.jpg",
-    "static/media/choripan.jpeg": "/static/media/choripan.d3cf9b98822677424d66.jpeg",
-    "static/media/moai-chile-svgrepo-com.svg": "/static/media/moai-chile-svgrepo-com.d363f5aa5fa31e28b6f47c11ffd2b74d.svg",
-    "static/media/linkcs_logo.svg": "/static/media/linkcs_logo.397cf2c88bed234aaac61c6d64c9fddc.svg",
-    "static/media/instagram-svgrepo-com.svg": "/static/media/instagram-svgrepo-com.0dd482fa842bd7851f54ff91a01be94a.svg",
-    "static/media/chile-chile-svgrepo-com.svg": "/static/media/chile-chile-svgrepo-com.eeb6ca82d1525ed4518c1aee7d186c64.svg",
-    "static/media/flag-for-flag-chile-svgrepo-com.svg": "/static/media/flag-for-flag-chile-svgrepo-com.fbb4de0a9f60134b51cec81c994b7998.svg",
-    "index.html": "/index.html",
-    "main.c46bd304.css.map": "/static/css/main.c46bd304.css.map",
-    "main.88107fd4.js.map": "/static/js/main.88107fd4.js.map",
-    "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
+    "main.css": "./static/css/main.c46bd304.css",
+    "main.js": "./static/js/main.cbfe80eb.js",
+    "static/js/453.8ab44547.chunk.js": "./static/js/453.8ab44547.chunk.js",
+    "static/media/Imagen de WhatsApp 2023-09-12 a las 22.11.54_8498568e.jpg": "./static/media/Imagen de WhatsApp 2023-09-12 a las 22.11.54_8498568e.7abaee7784d253ef7669.jpg",
+    "static/media/Imagen de WhatsApp 2023-09-12 a las 17.38.49_6f2f5aa9.jpg": "./static/media/Imagen de WhatsApp 2023-09-12 a las 17.38.49_6f2f5aa9.54e9ef710a7da44a6bca.jpg",
+    "static/media/Imagen de WhatsApp 2023-09-16 a las 22.35.29_b02b9d5e.jpg": "./static/media/Imagen de WhatsApp 2023-09-16 a las 22.35.29_b02b9d5e.cfa9179aed836c400470.jpg",
+    "static/media/Imagen de WhatsApp 2023-09-16 a las 22.35.32_075af17c.jpg": "./static/media/Imagen de WhatsApp 2023-09-16 a las 22.35.32_075af17c.4fb8387cff97d7f978f9.jpg",
+    "static/media/Imagen de WhatsApp 2023-10-25 a las 20.03.51_01266404.jpg": "./static/media/Imagen de WhatsApp 2023-10-25 a las 20.03.51_01266404.9f5563943d0392669707.jpg",
+    "static/media/choripan.jpeg": "./static/media/choripan.d3cf9b98822677424d66.jpeg",
+    "static/media/moai-chile-svgrepo-com.svg": "./static/media/moai-chile-svgrepo-com.d363f5aa5fa31e28b6f47c11ffd2b74d.svg",
+    "static/media/linkcs_logo.svg": "./static/media/linkcs_logo.397cf2c88bed234aaac61c6d64c9fddc.svg",
+    "static/media/instagram-svgrepo-com.svg": "./static/media/instagram-svgrepo-com.0dd482fa842bd7851f54ff91a01be94a.svg",
+    "static/media/chile-chile-svgrepo-com.svg": "./static/media/chile-chile-svgrepo-com.eeb6ca82d1525ed4518c1aee7d186c64.svg",
+    "static/media/flag-for-flag-chile-svgrepo-com.svg": "./static/media/flag-for-flag-chile-svgrepo-com.fbb4de0a9f60134b51cec81c994b7998.svg",
+    "index.html": "./index.html",
+    "main.c46bd304.css.map": "./static/css/main.c46bd304.css.map",
+    "main.cbfe80eb.js.map": "./static/js/main.cbfe80eb.js.map",
+    "453.8ab44547.chunk.js.map": "./static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c46bd304.css",
-    "static/js/main.88107fd4.js"
+    "static/js/main.cbfe80eb.js"
   ]
 }
