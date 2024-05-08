@@ -1,14 +1,10 @@
 import React, { useState, useContext} from "react";
-import axios from "axios";
+import API from "../../api.js";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../root";
 import ErrorMessageAccount from "../../components/ErrorMessageAccount.jsx";
 import ImageUploader from "../../components/ItemImageUploader.jsx";
 
-
-axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.useCredentials = true;
 
 
 
@@ -30,7 +26,7 @@ const CreateItem = () => {
             return;
         }   
         try {
-            const response = await axios.post("/api-inventory/create/", {
+            const response = await API.post("/api-inventory/create/", {
                 item_name: itemName,
                 item_description: itemDescription,
                 item_quantity: itemQuantity,
