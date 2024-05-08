@@ -184,7 +184,7 @@ else:
         "https://*.clubchilien.xyz",
     ]
     
-    #CSRF_USE_SESSIONS = True
+    #CSRF_USE_SESSIONS = True   #never use. it is used sometimes for better security, but i dont recommend
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_HTTPONLY = True
@@ -193,6 +193,7 @@ else:
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
+    CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
     
         
     
