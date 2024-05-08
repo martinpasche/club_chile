@@ -177,7 +177,6 @@ else:
         "https://*.clubchilien.xyz"
     ]
 
-
     CSRF_TRUSTED_ORIGINS = [
         "https://django.clubchilien.xyz",
         "https://clubchilien.xyz"

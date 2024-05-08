@@ -55,8 +55,17 @@ const RegisterPage = () => {
                         password : password1
                     }
             );
-            setIsLogged(true);
-            navigation("/");
+            if (response2.data.user !== undefined && response2.data.user !== null) {
+                console.log("User logged after registration");
+                console.log("user", response2.data.user);
+                console.log("response", response2);
+                localStorage.setItem("user", JSON.stringify(response2.data.user));
+                setIsLogged(true);
+                navigation("/");
+            } else {
+                console.log("User not logged after registration");
+                throw new Error("");
+            }
             
         } catch (error) {
             console.log("Error registration ");
