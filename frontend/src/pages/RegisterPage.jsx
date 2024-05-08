@@ -18,8 +18,8 @@ const RegisterPage = () => {
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
     const [error, setError] = useState('');
-    const navigation = useNavigate();
-    const {isLogged, setIsLogged} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const {user, setUser, isLogged, setIsLogged} = useContext(AuthContext);
 
 
     const handleSubmit = async (request) => {
@@ -55,17 +55,31 @@ const RegisterPage = () => {
                         password : password1
                     }
             );
-            if (response2.data.user !== undefined && response2.data.user !== null) {
-                console.log("User logged after registration");
-                console.log("user", response2.data.user);
-                console.log("response", response2);
-                localStorage.setItem("user", JSON.stringify(response2.data.user));
-                setIsLogged(true);
-                navigation("/");
-            } else {
-                console.log("User not logged after registration");
-                throw new Error("");
-            }
+            
+            //in the case that there are no exceptions
+            // that is to say, there wasn't anything wrong with 
+            //backend
+            
+            API
+                .get("/api-user/user/", {})
+                .then((response) => {
+                    if (response.data.user !== undefined && response.data.user !== null) {
+                        setUser(response.data.user);
+                        localStorage.setItem("user", JSON.stringify(response.data.user));
+                        setIsLogged(true);
+                        navigate("/");
+                    } else {
+                        console.log("Returned data.user is undefined or null");
+                        console.log("request ", response);
+                        console.log("data.user", response.data.user);
+                        throw new Error("");
+                    } 
+                })
+                .catch((error) => {
+                    setIsLogged(false);
+                    console.log("Error fetching user", error);
+                    throw new Error("");
+                });
             
         } catch (error) {
             console.log("Error registration ");
