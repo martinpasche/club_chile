@@ -53,7 +53,7 @@ export default function Root () {
                 localStorage.removeItem("user");
                 navigate("/");
             }).catch( (error) => {
-                console.log(error);
+                console.log("handle logout:", error);
             })
     }
 
@@ -89,7 +89,6 @@ export default function Root () {
                 .get("/api-user/user/", {})
                 .then( (response) => {
                     console.log("response", response);
-                    
                     if (response.data.user === undefined || response.data.user === null) {
                         setIsLogged(false);
                     }
