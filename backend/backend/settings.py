@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-op6-4^zi*=+qb7efadh))+-ani1h^&dg0d3hu41gnkp##1=y)$"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 AUTHENTICATION_BACKENDS = [
@@ -130,7 +130,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 if DEBUG:
-
+    
+    ALLOWED_HOSTS = ["http://localhost:3000",
+                     "https://django.clubchilien.xyz",
+                     "django.clubchilien.xyz",
+    ]
+    
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:3000",
         "http://127.0.0.1:3000",
@@ -140,6 +145,9 @@ if DEBUG:
         "http://*.127.0.0.1:3000",
         "http://*.localhost:8000",
         "http://*.127.0.0.1:8000",
+        "https://django.clubchilien.xyz",
+        "https://clubchilien.xyz",
+        "https://*.clubchilien.xyz",
     ]
 
     CORS_ORIGIN_WHITELIST = [
@@ -151,6 +159,9 @@ if DEBUG:
         "http://*.127.0.0.1:3000",
         "http://*.localhost:8000",
         "http://*.127.0.0.1:8000",
+        "https://django.clubchilien.xyz",
+        "https://clubchilien.xyz",
+        "https://*.clubchilien.xyz",
     ]
 
 
@@ -159,6 +170,9 @@ if DEBUG:
         'http://*.127.0.0.1:3000',
         'http://*.localhost:8000',
         'http://*.127.0.0.1:8000',
+        "https://django.clubchilien.xyz",
+        "https://clubchilien.xyz",
+        "https://*.clubchilien.xyz",
     ]
 
 else:

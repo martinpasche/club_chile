@@ -62,7 +62,7 @@ class ItemCreate (CreateAPIView):
             
             images_path = os.listdir(os.path.join(".", "media", "default_images"))
             default_image_path = random.choice(images_path)
-            default_image_whole_path = os.path.join("..", "media", "default_images", default_image_path)
+            default_image_whole_path = os.path.join(".", "media", "default_images", default_image_path)
             default_image_content = default_storage.open(default_image_whole_path).read()
             default_image_name = 'default_name.jpg'
             mutable_data['item_image'] = ContentFile(default_image_content, default_image_name)
