@@ -5,5 +5,5 @@ axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
 axios.defaults.withCredentials = true;
 
 export default axios.create({
-  baseURL: `http://jsonplaceholder.typicode.com/`
+  baseURL: `https://django.clubchilien.xyz`
 });
