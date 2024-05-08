@@ -37,7 +37,7 @@ export async function action ({request, params}) {
 
 const Items = () => {
     const {user, setUser, isLogged} = useContext(AuthContext);
-    const inventory = useLoaderData();
+    const inventory = useLoaderData({"hola":"mundo"});
 
     return (
         <>
@@ -56,7 +56,7 @@ const Items = () => {
                         <div className='flex flex-row w-[80%] justify-evenly items-center'>
                             <AddItemSymbol />
                             
-                            {inventory && inventory.map((item) => (
+                            {Array.isArray(inventory) && inventory.map((item) => (
                                 <ItemUserCard key={item.item_id} number={item.item_id} name={item.item_name} description={item.item_description} quantity={item.item_quantity} image={item.item_image} />
                             ))}
                         </div>
@@ -66,7 +66,7 @@ const Items = () => {
                         return <div className='grid grid-cols-4 gap-4'>
                             <AddItemSymbol />
                             
-                            {inventory && inventory.map((item) => (
+                            {Array.isArray(inventory) && inventory.map((item) => (
                                 <ItemUserCard key={item.item_id} number={item.item_id} name={item.item_name} description={item.item_description} quantity={item.item_quantity} image={item.item_image} />
                             ))}
                         </div>
