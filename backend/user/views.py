@@ -45,12 +45,11 @@ class UserRegister (APIView):
             
 
 
-@method_decorator(ensure_csrf_cookie, name='dispatch')
+
 class UserLogin (APIView):
     
     authentication_classes = []
     permission_classes = [permissions.AllowAny, ]
-    
     
     def post (self, request, format = None):
         try:
