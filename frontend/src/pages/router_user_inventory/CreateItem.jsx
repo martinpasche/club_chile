@@ -26,7 +26,7 @@ const CreateItem = () => {
         
         let csrftoken = null;
         try{
-            csrftoken = document.querySelector('[name=csrftoken]').value;    
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
         } catch (e) {
             console.log("Error getting csrftoken", e);
         }
