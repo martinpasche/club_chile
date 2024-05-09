@@ -7,7 +7,7 @@ import axios from 'axios';
 
 export default axios.create({
     baseURL: `https://django.clubchilien.xyz`,
-    //withCredentials : true,
+    withCredentials : true,
     //xsrfHeaderName: 'X-CSRFToken',
     xsrfCookieName: 'csrftoken',
 });
