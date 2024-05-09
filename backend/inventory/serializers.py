@@ -20,7 +20,6 @@ class ItemSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        print("representation", representation)
         if representation['user'] is None:
             representation['user'] = 'Unkown'
         return representation
