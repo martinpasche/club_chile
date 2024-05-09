@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import API from "../api.js";
+import API, {getCookie} from "../api.js";
 import { AuthContext } from "../root";
 import ImageUploader from '../components/ProfileImageUploader.tsx';
 import ErrorMessageAccount from '../components/ErrorMessageAccount.jsx';
@@ -58,6 +58,13 @@ const AccountPage = () => {
                 const response = await API.post(
                     "api-user/update/",
                     formData,
+                    {
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                            'X-CSRFToken': getCookie('csrftoken'),},
+                        xsrfHeaderName: 'X-CSRFToken',
+                        xsrfCookieName: 'csrftoken',
+                        }   
                 );
                 
                 if (response.status !== 200) {
