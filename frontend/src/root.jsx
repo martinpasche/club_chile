@@ -46,6 +46,7 @@ export default function Root () {
         }
         
         const csrftoken = getCookie('csrftoken');  
+        console.log("csrftoken", csrftoken);
         
         API
             .post(
