@@ -45,9 +45,18 @@ export default function Root () {
             localStorage.removeItem("user");
         }
         
+        const csrftoken = getCookie('csrftoken');  
+        
         API
             .post(
                 "/api-user/logout/", {},
+                { headers: 
+                    {
+                    'X-CSRFToken': csrftoken,
+                },
+                xsrfHeaderName : 'X-CSRFToken',
+                xsrfCookieName : 'csrftoken',
+            }
             ).then( (response) => {
                 console.log("Logout successful");
                 setUser(user_default_state);

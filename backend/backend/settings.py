@@ -248,7 +248,7 @@ else:
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
-    CSRF_COOKIE_DOMAIN = "clubchilien.xyz"
+    CSRF_COOKIE_DOMAIN = "*.clubchilien.xyz"
     CSRF_COOKIE_NAME = "csrftoken"
     
     STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
