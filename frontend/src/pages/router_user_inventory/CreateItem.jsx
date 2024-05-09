@@ -5,6 +5,22 @@ import { AuthContext } from "../../root";
 import ErrorMessageAccount from "../../components/ErrorMessageAccount.jsx";
 import ImageUploader from "../../components/ItemImageUploader.jsx";
 
+const getCookie = (name) => {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
 
 const CreateItem = () => {
     const {user, setUser, isLogged} = useContext(AuthContext);
@@ -32,6 +48,11 @@ const CreateItem = () => {
         }
         try{
             csrftoken = csrftoken ?  csrftoken : document.querySelector('[name=csrftoken]').value;    
+        } catch (e) {
+            console.log("Error getting csrftoken", e);
+        }
+        try {
+            csrftoken = csrftoken ? csrftoken : getCookie('csrftoken');
         } catch (e) {
             console.log("Error getting csrftoken", e);
         }

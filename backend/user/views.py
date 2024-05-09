@@ -51,7 +51,7 @@ class UserLogin (APIView):
     authentication_classes = []
     permission_classes = [permissions.AllowAny, ]
     
-    @ensure_csrf_cookie
+    
     def post (self, request, format = None):
         try:
             validated_data = validation_login(request.data)    
