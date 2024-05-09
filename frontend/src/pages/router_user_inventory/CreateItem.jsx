@@ -66,7 +66,7 @@ const CreateItem = () => {
             formData.append("item_name", itemName);
             formData.append("item_description", itemDescription);
             formData.append("item_quantity", itemQuantity);
-            formData.append("item_image", itemImage);
+            //formData.append("item_image", itemImage);
             const response = await API.post("/api-inventory/create/", formData, 
             { headers: 
                 {
