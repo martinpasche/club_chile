@@ -45,7 +45,7 @@ class UserRegister (APIView):
             
 
 
-
+@method_decorator(ensure_csrf_cookie, name='dispatch')
 class UserLogin (APIView):
     
     authentication_classes = []

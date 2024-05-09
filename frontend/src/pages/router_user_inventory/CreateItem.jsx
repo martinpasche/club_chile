@@ -74,6 +74,7 @@ const CreateItem = () => {
                 'X-CSRFToken': csrftoken,
             },
             xsrfHeaderName : 'X-CSRFToken',
+            xsrfCookieName : 'csrftoken',
             });
             
             console.log("response", response);
