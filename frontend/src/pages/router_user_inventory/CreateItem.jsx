@@ -23,7 +23,8 @@ const CreateItem = () => {
             navigate("/Login");
             return;
         }   
-        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const csrftoken = document.querySelector('[name=csrftoken]').value;
+        console.log("csrftoken", csrftoken);
         try {
             const response = await API.post("/api-inventory/create/", {
                 item_name: itemName,
