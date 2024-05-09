@@ -60,7 +60,6 @@ const AccountPage = () => {
                     formData,
                     {
                         headers: {
-                            'Content-Type': 'multipart/form-data',
                             'X-CSRFToken': getCookie('csrftoken'),},
                         xsrfHeaderName: 'X-CSRFToken',
                         xsrfCookieName: 'csrftoken',
