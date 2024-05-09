@@ -45,7 +45,7 @@ export default function Root () {
             localStorage.removeItem("user");
         }
         
-        const csrftoken = getCookie('csrftoken');  
+        let csrftoken = getCookie('csrftoken');  
         console.log("csrftoken", csrftoken);
         
         API
@@ -98,25 +98,36 @@ export default function Root () {
         }
             
         else if (!isLogged) {
-            API
-            .get("/api-user/user/", {})
-            .then( (response) => {
-                console.log("trying Loggin in", response);
-                if (response.data.user === undefined || response.data.user === null) {
-                    setIsLogged(false);
-                }
-                else {
-                    console.log("user logged in");
-                    setIsLogged(true);
-                    setUser(response.data.user);
-                    localStorage.setItem("user", JSON.stringify(response.data.user));
-                }
-            })
-            .catch( (error) => {
+            
+            let csrftoken = getCookie('csrftoken');
+            
+            if (csrftoken === null) {
+                console.log("csrftoken is null");
                 localStorage.removeItem("user");
+                setUser(user_default_state);
                 setIsLogged(false);
-                console.log("User not logged in");
-            });
+                return;
+            } else {
+                API
+                .get("/api-user/user/", {})
+                .then( (response) => {
+                    console.log("trying Loggin in", response);
+                    if (response.data.user === undefined || response.data.user === null) {
+                        setIsLogged(false);
+                    }
+                    else {
+                        console.log("user logged in");
+                        setIsLogged(true);
+                        setUser(response.data.user);
+                        localStorage.setItem("user", JSON.stringify(response.data.user));
+                    }
+                })
+                .catch( (error) => {
+                    localStorage.removeItem("user");
+                    setIsLogged(false);
+                    console.log("User not logged in");
+                });
+            }
         }         
     }, [isLogged]);
 
