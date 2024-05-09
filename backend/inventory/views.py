@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
-
+from django.conf import settings
 
 from rest_framework import viewsets, renderers, generics, permissions, authentication, status
 from rest_framework.response import Response
@@ -60,9 +60,9 @@ class ItemCreate (CreateAPIView):
         
         if 'item_image' not in mutable_data or not mutable_data.get('item_image'):
             
-            images_path = os.listdir(os.path.join(".", "media", "default_images"))
+            images_path = os.listdir(os.path.join(settings.BASE_DIR , "default_images"))
             default_image_path = random.choice(images_path)
-            default_image_whole_path = os.path.join(".", "media", "default_images", default_image_path)
+            default_image_whole_path = os.path.join(settings.BASE_DIR, "default_images", default_image_path)
             default_image_content = default_storage.open(default_image_whole_path).read()
             default_image_name = 'default_name.jpg'
             mutable_data['item_image'] = ContentFile(default_image_content, default_image_name)
