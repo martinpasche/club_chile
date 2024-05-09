@@ -33,9 +33,7 @@ export default function Root () {
     const [visibleNavBar, setVisibleNavBar] = useState(true);  
 
     
-    
-    
-    
+
     
     const handleLogout = async (e) => {
         
@@ -46,7 +44,6 @@ export default function Root () {
         }
         
         let csrftoken = getCookie('csrftoken');  
-        console.log("csrftoken", csrftoken);
         
         API
             .post(

@@ -26,8 +26,7 @@ const CreateItem = () => {
             return;
         }   
         
-        let csrftoken = getCookie('csrftoken');       
-        console.log("csrftoken", csrftoken);
+        const csrftoken = getCookie('csrftoken');       
         
         try {
             const formData = new FormData();

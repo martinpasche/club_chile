@@ -28,13 +28,11 @@ const LoginPage = () => {
                     password : password
                 }
             );
-            console.log("response",response);
-            console.log("response.data", response.data);
-            
+
             API
             .get("/api-user/user/", {})
             .then( (response) => {
-                console.log("trying Loggin in", response);
+                //console.log("trying Loggin in", response);
                 if (response.data.user === undefined || response.data.user === null) {
                     setIsLogged(false);
                 }
