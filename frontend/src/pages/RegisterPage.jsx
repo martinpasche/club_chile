@@ -56,9 +56,25 @@ const RegisterPage = () => {
                     }
             );
             
-            // In the case where there are no exceptions
-            setIsLogged(true);
-            navigate("/");
+            API
+            .get("/api-user/user/", {})
+            .then( (response) => {
+                //console.log("trying Loggin in", response);
+                if (response.data.user === undefined || response.data.user === null) {
+                    setIsLogged(false);
+                }
+                else {
+                    setIsLogged(true);
+                    setUser(response.data.user);
+                    localStorage.setItem("user", JSON.stringify(response.data.user));
+                    navigate("/");
+                }
+            })
+            .catch( (error) => {
+                localStorage.removeItem("user");
+                setIsLogged(false);
+                console.log("User not logged in");
+            });
             
 
             
