@@ -50,7 +50,6 @@ export default function Root () {
                 "/api-user/logout/", {},
                 { headers: 
                     {
-                    'Content-Type': 'multipart/form-data' ,
                     'X-CSRFToken': getCookie('csrftoken'),
                 },
                 xsrfHeaderName : 'X-CSRFToken',
