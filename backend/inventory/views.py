@@ -58,7 +58,7 @@ class ItemCreate (CreateAPIView):
         mutable_data = request.data.copy()
         mutable_data["user"] = user.user_id
         
-        if 'item_image' not in mutable_data or not mutable_data.get('item_image'):
+        if 'item_image' not in mutable_data or mutable_data.get('item_image') in [None, '', 'null', 'undefined']:
             
             images_path = os.listdir(os.path.join(settings.BASE_DIR , "media", "default_images"))
             default_image_path = random.choice(images_path)
