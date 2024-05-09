@@ -259,7 +259,7 @@ else:
     #EMAIL_FILE_PATH = "/home/clubxkhj/club_chile/backend/emails"
     EMAIL_HOST = "django.clubchilien.xyz"
     EMAIL_PORT = 465
-    EMAIL_USE_TLS = True
+    EMAIL_USE_SSL = True
     EMAIL_HOST_USER = "server@django.clubchilien.xyz"
     EMAIL_HOST_PASSWORD = "Sugarglider0680"
     
