@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model, login, logout
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
 from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from django.views.decorators.csrf import csrf_exempt, csrf_protect, ensure_csrf_cookie
 from django.core.files.storage import default_storage
 
 from rest_framework import viewsets, renderers, generics, permissions, authentication, status
@@ -44,14 +44,15 @@ class UserRegister (APIView):
             raise APIException(detail = str(error), code=status.HTTP_400_BAD_REQUEST)
             
 
+
+@method_decorator(ensure_csrf_cookie, name='dispatch')
 class UserLogin (APIView):
     
-    # En
     authentication_classes = []
     permission_classes = [permissions.AllowAny, ]
     
+    
     def post (self, request, format = None):
-        
         try:
             validated_data = validation_login(request.data)    
             serializer = ChileanUserLoginSerializer(data = validated_data)
