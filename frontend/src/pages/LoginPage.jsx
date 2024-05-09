@@ -31,8 +31,28 @@ const LoginPage = () => {
             console.log("response",response);
             console.log("response.data", response.data);
             
-            setIsLogged(true);
-            navigate("/");
+            API
+            .get("/api-user/user/", {})
+            .then( (response) => {
+                console.log("trying Loggin in", response);
+                if (response.data.user === undefined || response.data.user === null) {
+                    setIsLogged(false);
+                }
+                else {
+                    setIsLogged(true);
+                    setUser(response.data.user);
+                    localStorage.setItem("user", JSON.stringify(response.data.user));
+                    navigate("/");
+                }
+                
+            })
+            .catch( (error) => {
+                localStorage.removeItem("user");
+                setIsLogged(false);
+                console.log("User not logged in");
+            });
+            
+            
             
 
         } catch (error) {
