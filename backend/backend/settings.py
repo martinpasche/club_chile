@@ -242,11 +242,13 @@ else:
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_HTTPONLY = True
     STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
     MEDIA_ROOT = "/home/clubxkhj/club_chile/backend/media"
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
+    CSRF_COOKIE_DOMAIN = "*.clubchilien.xyz"
     #CSRF_HEADER_NAME = "CSRF_COOKIE"
     """ 
     Encontre que axios, react, en build, entrega el siguiente header:

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../root";
 import ErrorMessageAccount from "../../components/ErrorMessageAccount.jsx";
 import ImageUploader from "../../components/ItemImageUploader.jsx";
-import {useCookies} from 'react-cookie';
+
 
 const CreateItem = () => {
     const {user, setUser, isLogged} = useContext(AuthContext);
@@ -15,12 +15,6 @@ const CreateItem = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     
-    const [cookies] = useCookies(['csrftoken']);
-    const csrftoken = cookies.csrftoken;
-
-    
-    console.log("cookie", csrftoken);
-    console.log("cookie2", document.cookie);
     
     const handleSubmit = async (e) => {
         e.preventDefault();
