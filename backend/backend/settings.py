@@ -244,7 +244,8 @@ else:
     CSRF_COOKIE_HTTPONLY = False
     SESSION_COOKIE_HTTPONLY = True
     STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
-    MEDIA_ROOT = "/home/clubxkhj/public_html/media-django"
+    #MEDIA_ROOT = "/home/clubxkhj/public_html/media-django"
+    MEDIA_ROOT = "/home/clubxkhj/club_chile/backend/media"
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
