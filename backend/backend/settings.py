@@ -256,7 +256,7 @@ else:
     SERVER_EMAIL = "server@django.clubchilien.xyz"
     DEFAULT_FROM_EMAIL = "server@django.clubchilien.xyz"
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-    EMAIL_FILE_PATH = "/home/clubxkhj/club_chile/backend/emails"
+    #EMAIL_FILE_PATH = "/home/clubxkhj/club_chile/backend/emails"
     EMAIL_HOST = "django.clubchilien.xyz"
     EMAIL_PORT = 465
     EMAIL_USE_TLS = True
