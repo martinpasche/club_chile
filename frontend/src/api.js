@@ -22,7 +22,7 @@ export const getCookie = (name) => {
 }
 
 export default axios.create({
-    baseURL: `https://clubchilien.xyz`,
+    baseURL: `https://django.clubchilien.xyz`,
     withCredentials : true,
     //xsrfHeaderName: 'X-CSRFToken',
     //xsrfCookieName: 'csrftoken',
