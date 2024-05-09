@@ -243,7 +243,7 @@ else:
     #CSRF_USE_SESSIONS = True   #never use. it is used sometimes for better security, but i dont recommend
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_HTTPONLY = True
+    CSRF_COOKIE_HTTPONLY = False   #setting this to true doesnt provide any practical security benefit
     SESSION_COOKIE_HTTPONLY = True
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
