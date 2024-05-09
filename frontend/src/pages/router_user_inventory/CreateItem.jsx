@@ -23,7 +23,20 @@ const CreateItem = () => {
             navigate("/Login");
             return;
         }   
-        const csrftoken = document.querySelector('[name=csrftoken]').value;
+        
+        let csrftoken = null;
+        try{
+            csrftoken = document.querySelector('[name=csrftoken]').value;    
+        } catch (e) {
+            console.log("Error getting csrftoken", e);
+        }
+        try{
+            csrftoken = csrftoken ?  csrftoken : document.querySelector('[name=csrftoken]').value;    
+        } catch (e) {
+            console.log("Error getting csrftoken", e);
+        }
+        
+        
         console.log("csrftoken", csrftoken);
         try {
             const response = await API.post("/api-inventory/create/", {
