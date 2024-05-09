@@ -5,6 +5,7 @@ from django.views.decorators.vary import vary_on_cookie
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt, csrf_protect, ensure_csrf_cookie
 from django.core.files.storage import default_storage
+from django.core.mail import send_mail
 
 from rest_framework import viewsets, renderers, generics, permissions, authentication, status
 from rest_framework.response import Response
@@ -59,6 +60,17 @@ class UserLogin (APIView):
             if serializer.is_valid():
                 user = serializer.check_user(validated_data)
                 login(request, user)
+                
+                try:
+                    send_mail(
+                        subject="Just checking", 
+                        message="You have logged in", 
+                        from_email="server@django.clubchilien.xyz", 
+                        recipient_list=[user.email], 
+                        fail_silently=False)
+                except Exception as error:
+                    raise APIException(detail = str(error), code=status.HTTP_400_BAD_REQUEST)                
+                
                 return Response(serializer.data, status= status.HTTP_200_OK)
             
             return Response(status = status.HTTP_400_BAD_REQUEST)
