@@ -4,7 +4,7 @@ import instaImg from './svg/instagram-svgrepo-com.svg';
 import linkcs from './svg/linkcs_logo.svg';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import React, {useEffect, useState, createContext} from 'react';
-import API from './api.js';
+import API, {getCookie} from './api.js';
 
 
 
@@ -47,8 +47,15 @@ export default function Root () {
         
         API
             .post(
-                "/api-user/logout/", {}
-            ).then( (response) => {
+                "/api-user/logout/", {},
+                { headers: 
+                    {
+                    'Content-Type': 'multipart/form-data' ,
+                    'X-CSRFToken': getCookie('csrftoken'),
+                },
+                xsrfHeaderName : 'X-CSRFToken',
+                xsrfCookieName : 'csrftoken',
+            }).then( (response) => {
                 console.log("Logout successful");
                 setUser(user_default_state);
                 setIsLogged(false);
@@ -87,7 +94,7 @@ export default function Root () {
             setUser(JSON.parse(storedUser));
         }
             
-        else {
+        else if (!isLogged) {
             API
             .get("/api-user/user/", {})
             .then( (response) => {
