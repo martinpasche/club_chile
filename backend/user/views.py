@@ -132,8 +132,8 @@ class UserUpdate (APIView):
                 serializer.save()
                 return Response(serializer.data, status = status.HTTP_200_OK)
             else:
-                print("serializer errors:",serializer.errors)
-                return Response(status = status.HTTP_400_BAD_REQUEST)
+                # return Response(status = status.HTTP_400_BAD_REQUEST)
+                raise APIException(detail = str(serializer.errors), code=status.HTTP_400_BAD_REQUEST)
         except ValidationError as error:
             raise APIException(detail = str(error), code=status.HTTP_400_BAD_REQUEST)
 
