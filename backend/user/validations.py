@@ -69,7 +69,7 @@ def validation_update (data, user):
         raise ValidationError("Missing email")
     
     if email != user.email and UserModel.objects.filter(email = email).exists():
-        raise ValidationError("Email taken, choose another email")
+        raise ValidationError(f"Email taken, choose another email user:{user.email} email: {email}")
     
     if not username:
         raise ValidationError("Missing username")
