@@ -252,7 +252,7 @@ else:
     CSRF_COOKIE_NAME = "csrftoken"
     
     STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
-    MEDIA_ROOT = '/home/clubxkhj/public_html/media-django'
+    MEDIA_ROOT = '/home/clubxkhj/media.clubchilien.xyz/'
     MEDIA_URL = 'http://media.clubchilien.xyz/'
     
     
