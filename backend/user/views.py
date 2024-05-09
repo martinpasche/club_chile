@@ -120,7 +120,12 @@ class UserUpdate (APIView):
             user = request.user
             data = validation_update(request.data)
             data_validated = password_validation( data )
-            serializer = ChileanUserSerializer(request.user, data = data_validated, partial = True)
+            serializer = ChileanUserSerializer(
+                                                request.user, 
+                                                data = data_validated, 
+                                                partial = True,
+                                                exclude = ['username', 'email', 'profile_pic'] # exclude uniqueness validation
+                                                )
             if serializer.is_valid(raise_exception=False):
                 
                 # delete the old picture
