@@ -187,6 +187,7 @@ if DEBUG:
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
+    MEDIA_URL = '/media/'
 
     
 
@@ -244,13 +245,15 @@ else:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_HTTPONLY = False
     SESSION_COOKIE_HTTPONLY = True
-    STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
-    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
     CSRF_COOKIE_DOMAIN = "clubchilien.xyz"
     CSRF_COOKIE_NAME = "csrftoken"
+    
+    STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
+    MEDIA_ROOT = '/home/clubxkhj/public_html/media-django'
+    MEDIA_URL = 'http://media.clubchilien.xyz/'
     
     
     SERVER_EMAIL = "server@django.clubchilien.xyz"
@@ -289,7 +292,7 @@ REST_FRAMEWORK = {
 AUTH_USER_MODEL = "user.ChileanUser"
 CSRF_COOKIE_NAME = "csrftoken"
 ROOT_URLCONF = "backend.urls"
-MEDIA_URL = '/media/'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
