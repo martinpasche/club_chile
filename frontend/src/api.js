@@ -5,9 +5,25 @@ import axios from 'axios';
 //axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
 //axios.defaults.withCredentials = true;
 
+export const getCookie = (name) => {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
 export default axios.create({
     baseURL: `https://django.clubchilien.xyz`,
     withCredentials : true,
     //xsrfHeaderName: 'X-CSRFToken',
-    xsrfCookieName: 'csrftoken',
+    //xsrfCookieName: 'csrftoken',
 });

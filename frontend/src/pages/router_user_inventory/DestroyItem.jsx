@@ -1,5 +1,5 @@
 import React from "react";
-import API from "../../api.js";
+import API, {getCookie} from "../../api.js";
 import { redirect } from "react-router-dom";
 
 
@@ -7,7 +7,14 @@ import { redirect } from "react-router-dom";
 export async function action ({request, params}) {
     try {
         let itemId = params.itemId;
-        const response = await API.delete(`/api-inventory/item/${itemId}`, {});
+        const response = await API.delete(
+            `/api-inventory/item/${itemId}`,
+            {
+            headers: {'X-CSRFToken': getCookie('csrftoken')},
+            xsrfHeaderName : 'X-CSRFToken',
+            xsrfCookieName : 'csrftoken',
+            }
+        );
         return redirect("/Inventario-Usuario"); ;
     } catch (error) {
         console.log("Error deleting item", error);

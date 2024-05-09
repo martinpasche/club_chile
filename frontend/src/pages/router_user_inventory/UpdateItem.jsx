@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import { useLoaderData } from "react-router-dom";
-import API from "../../api.js";
+import API, {getCookie} from "../../api.js";
 import { AuthContext } from "../../root";
 import { useNavigate } from "react-router-dom";
 import ImageUploader from "../../components/ItemImageUploader";
@@ -53,9 +53,14 @@ const UpdateItem = () => {
             
             
             const response = await API.put(`/api-inventory/item/${itemId}/`, formData, 
-            { headers: 
+            { 
+            headers: 
                 {
-                'Content-Type': 'multipart/form-data' }
+                'Content-Type': 'multipart/form-data',
+                'X-CSRFToken': getCookie('csrftoken'),
+                },
+            xsrfHeaderName : 'X-CSRFToken',
+            xsrfCookieName : 'csrftoken',
             });
 
             if (response.status === 200) {
