@@ -20,7 +20,6 @@ export async function loader (){
 
 const Items = () => {
     const inventory = useLoaderData();
-    console.log(inventory);
     
     
     return (

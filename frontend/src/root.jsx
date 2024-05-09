@@ -9,7 +9,7 @@ import API, {getCookie} from './api.js';
 
 
 
-const media_path = "https://django.clubchilien.xyz"
+const media_path = "https://clubchilien.xyz"
 const user_default_state = {
     username : null,
     first_name : null,

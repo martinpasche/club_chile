@@ -193,6 +193,7 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = ["https://django.clubchilien.xyz",
                      "django.clubchilien.xyz",
+                     "clubchilien.xyz",
                      "http://localhost:3000",
                      "http://localhost:8000",
                      "127.0.0.1:8000",
@@ -244,14 +245,12 @@ else:
     CSRF_COOKIE_HTTPONLY = False
     SESSION_COOKIE_HTTPONLY = True
     STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
-    #MEDIA_ROOT = "/home/clubxkhj/public_html/media-django"
     MEDIA_ROOT = "/home/clubxkhj/club_chile/backend/media"
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
     CSRF_COOKIE_DOMAIN = "clubchilien.xyz"
     CSRF_COOKIE_NAME = "csrftoken"
-    #CSRF_HEADER_NAME = "CSRF_COOKIE"
     
     
     SERVER_EMAIL = "server@django.clubchilien.xyz"
