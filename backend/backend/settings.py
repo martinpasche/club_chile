@@ -249,14 +249,19 @@ else:
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
     CSRF_COOKIE_DOMAIN = "clubchilien.xyz"
+    CSRF_COOKIE_NAME = "csrftoken"
     #CSRF_HEADER_NAME = "CSRF_COOKIE"
-    """ 
-    Encontre que axios, react, en build, entrega el siguiente header:
-    CSRF_HEADER_NAME = "CSRF_COOKIE"
-    """
     
-        
+    DEFAULT_FROM_EMAIL = "server@django.clubchilien.xyz"
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_FILE_PATH = "/home/clubxkhj/club_chile/backend/emails"
+    EMAIL_HOST = "django.clubchilien.xyz"
+    EMAIL_PORT = 465
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = "server@django.clubchilien.xyz"
+    EMAIL_HOST_PASSWORD = "Sugarglider0680"
     
+
 
 
 if DEBUG:
