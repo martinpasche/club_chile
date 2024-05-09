@@ -70,7 +70,8 @@ const CreateItem = () => {
                 {
                 'Content-Type': 'multipart/form-data' ,
                 'X-CSRFToken': csrftoken,
-            }
+            },
+            xsrfHeaderName : 'X-CSRFTOKEN',
             });
             
             console.log("response", response);

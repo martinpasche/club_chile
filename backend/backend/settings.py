@@ -276,7 +276,7 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = "user.ChileanUser"
-CSRF_COOKIE_NAME = "csrftoken"
+CSRF_COOKIE_NAME = "XSRF-TOKEN"
 ROOT_URLCONF = "backend.urls"
 MEDIA_URL = '/media/'
 
