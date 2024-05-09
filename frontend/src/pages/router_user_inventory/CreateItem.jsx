@@ -23,6 +23,7 @@ const CreateItem = () => {
             navigate("/Login");
             return;
         }   
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
         try {
             const response = await API.post("/api-inventory/create/", {
                 item_name: itemName,
@@ -33,6 +34,7 @@ const CreateItem = () => {
             { headers: 
                 {
                 'Content-Type': 'multipart/form-data' ,
+                'X-CSRFToken': csrftoken,
             }
             });
             
