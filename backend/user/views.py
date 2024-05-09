@@ -118,13 +118,12 @@ class UserUpdate (APIView):
         
         try: 
             user = request.user
-            data = validation_update(request.data)
+            data = validation_update(request.data, user)
             data_validated = password_validation( data )
             serializer = ChileanUserSerializer(
                                                 request.user, 
                                                 data = data_validated, 
                                                 partial = True,
-                                                exclude = ['username', 'email', 'profile_pic'] # exclude uniqueness validation
                                                 )
             if serializer.is_valid(raise_exception=False):
                 

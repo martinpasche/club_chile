@@ -88,3 +88,8 @@ class ChileanUserSerializer (serializers.ModelSerializer):
                 setattr(instance, attr, value) #this is a built-in function that sets the attribute to an object
         instance.save()
         return instance
+    
+    def validate(self, data):
+        return data
+    
+    

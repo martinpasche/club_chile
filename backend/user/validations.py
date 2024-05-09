@@ -53,7 +53,7 @@ def validation_login (data):
 
 
 
-def validation_update (data):
+def validation_update (data, user):
     
     try:
         email = data['email'].strip()
@@ -68,8 +68,14 @@ def validation_update (data):
     if not email:
         raise ValidationError("Missing email")
     
+    if email != user.email and UserModel.objects.filter(email = email).exists():
+        raise ValidationError("Email taken, choose another email")
+    
     if not username:
         raise ValidationError("Missing username")
+    
+    if username != user.username and UserModel.objects.filter(username = username).exists():
+        raise ValidationError("Username taken, choose another username")
     
     if live_on_campus == None:
         raise ValidationError("Missing live_on_campus")
