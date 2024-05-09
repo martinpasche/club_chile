@@ -252,6 +252,8 @@ else:
     CSRF_COOKIE_NAME = "csrftoken"
     #CSRF_HEADER_NAME = "CSRF_COOKIE"
     
+    
+    SERVER_EMAIL = "server@django.clubchilien.xyz"
     DEFAULT_FROM_EMAIL = "server@django.clubchilien.xyz"
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_FILE_PATH = "/home/clubxkhj/club_chile/backend/emails"
@@ -260,6 +262,10 @@ else:
     EMAIL_USE_TLS = True
     EMAIL_HOST_USER = "server@django.clubchilien.xyz"
     EMAIL_HOST_PASSWORD = "Sugarglider0680"
+    
+    ADMINS = [
+        ('Martin', 'martin.pasche@student-cs.fr'),
+    ]
     
 
 
