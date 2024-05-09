@@ -70,7 +70,7 @@ class ItemCreate (CreateAPIView):
         try:
             _, ext = os.path.splitext(mutable_data.get('item_image').name)
         except AttributeError as error:
-            raise APIException(f"No image file was provided., {error}", "mutable_data.get('item_image'):", mutable_data.get('item_image'))
+            raise APIException(f"No image file was provided., {error} mutable_data.get('item_image'): {mutable_data.get('item_image')}")
         
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         new_filename = f"item_img_user_{user.user_id}_{timestamp}{ext}"
