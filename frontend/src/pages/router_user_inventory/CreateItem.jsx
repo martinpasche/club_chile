@@ -57,6 +57,8 @@ const CreateItem = () => {
             console.log("Error getting csrftoken", e);
         }
         
+        csrftoken = getCookie('csrftoken');
+        
         
         console.log("csrftoken", csrftoken);
         try {
