@@ -15,8 +15,6 @@ interface ItemUserCardProps {
 
 const ItemUserCard: React.FC<ItemUserCardProps> = (props) => {
     
-    console.log(props);
-    
     return (
         <div className="card h-96 w-96 bg-base-100 shadow-xl">
             
