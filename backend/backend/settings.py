@@ -206,6 +206,7 @@ else:
         "https://django.clubchilien.xyz",
         "https://clubchilien.xyz",
         "https://*.clubchilien.xyz",
+        "https://.clubchilien.xyz",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://localhost:8000",
@@ -220,6 +221,7 @@ else:
         "https://django.clubchilien.xyz",
         "https://clubchilien.xyz",
         "https://*.clubchilien.xyz",
+        "https://.clubchilien.xyz",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://localhost:8000",
@@ -233,6 +235,7 @@ else:
     CSRF_TRUSTED_ORIGINS = [
         "https://django.clubchilien.xyz",
         "https://clubchilien.xyz",
+        "https://.clubchilien.xyz",
         "https://*.clubchilien.xyz",
         'http://*.localhost:3000',
         'http://*.127.0.0.1:3000',
@@ -248,7 +251,7 @@ else:
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
     CORS_ORIGIN_ALLOW_ALL = False
-    CSRF_COOKIE_DOMAIN = "*.clubchilien.xyz"
+    CSRF_COOKIE_DOMAIN = "clubchilien.xyz"
     CSRF_COOKIE_NAME = "csrftoken"
     
     STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
