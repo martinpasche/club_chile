@@ -31,12 +31,7 @@ export default function Root () {
     /* we want to control the top navbar */
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visibleNavBar, setVisibleNavBar] = useState(true);  
-    
-    
-    
-    console.log("User",user);
-    console.log("profile pic", user.profile_pic);
-    console.log("isLogged", isLogged);
+
     
     
     
@@ -48,7 +43,6 @@ export default function Root () {
         const storedUser = localStorage.getItem("user");
         if (storedUser){
             localStorage.removeItem("user");
-            setIsLogged(false);
         }
         
         API
@@ -89,34 +83,30 @@ export default function Root () {
     useEffect(() => {
         
         const storedUser = localStorage.getItem("user");
-        if (storedUser){
+        if (storedUser && isLogged){
             setUser(JSON.parse(storedUser));
-        }else {
-            
-            if (isLogged) {
-                API
-                .get("/api-user/user/", {})
-                .then( (response) => {
-                    console.log("response", response);
-                    if (response.data.user === undefined || response.data.user === null) {
-                        setIsLogged(false);
-                    }
-                    else {
-                        setIsLogged(true);
-                        setUser(response.data.user);
-                        localStorage.setItem("user", JSON.stringify(response.data.user));
-                    }
-                })
-                .catch( (error) => {
-                    localStorage.removeItem("user");
-                    setIsLogged(false);
-                    console.log("User not logged in");
-                });
-            } else {
-                //AGREGAR LOGIN THE USUARIO
-                return;
-            }            
         }
+            
+        else {
+            API
+            .get("/api-user/user/", {})
+            .then( (response) => {
+                console.log("trying Loggin in", response);
+                if (response.data.user === undefined || response.data.user === null) {
+                    setIsLogged(false);
+                }
+                else {
+                    setIsLogged(true);
+                    setUser(response.data.user);
+                    localStorage.setItem("user", JSON.stringify(response.data.user));
+                }
+            })
+            .catch( (error) => {
+                localStorage.removeItem("user");
+                setIsLogged(false);
+                console.log("User not logged in");
+            });
+        }         
     }, [isLogged]);
 
 

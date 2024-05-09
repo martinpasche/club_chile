@@ -90,6 +90,8 @@ class ChileanUserSerializer (serializers.ModelSerializer):
         return instance
     
     def validate(self, data):
+        # esto lo puse pq el codigo revisa uniqueness
+        # y yo no quiero, lo implemente antes
         return data
     
     
