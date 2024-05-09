@@ -48,13 +48,7 @@ export default function Root () {
         API
             .post(
                 "/api-user/logout/", {},
-                { headers: 
-                    {
-                    'X-CSRFToken': getCookie('csrftoken'),
-                },
-                xsrfHeaderName : 'X-CSRFToken',
-                xsrfCookieName : 'csrftoken',
-            }).then( (response) => {
+            ).then( (response) => {
                 console.log("Logout successful");
                 setUser(user_default_state);
                 setIsLogged(false);
