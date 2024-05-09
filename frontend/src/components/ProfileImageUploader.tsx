@@ -24,7 +24,7 @@ const ProfileImageUploader: React.FC<ImageUploaderProps> = (props) => {
     
     // update the image source when the profilePic changes
     useEffect(() => {
-        setImageSrc("https://media.clubchilien.xyz" + props.profilePic);
+        setImageSrc("" + props.profilePic);
     }, [props.profilePic]);
     
     //big functional function for saving image
