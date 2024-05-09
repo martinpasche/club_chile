@@ -102,6 +102,7 @@ export default function Root () {
                     setIsLogged(false);
                 }
                 else {
+                    console.log("user logged in");
                     setIsLogged(true);
                     setUser(response.data.user);
                     localStorage.setItem("user", JSON.stringify(response.data.user));
