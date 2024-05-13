@@ -192,17 +192,18 @@ if DEBUG:
     
 
 else:
-    ALLOWED_HOSTS = ["https://django.clubchilien.xyz",
-                     "https://www.django.clubchilien.xyz"
-                     "django.clubchilien.xyz",
-                     "www.django.clubchilien.xyz",
-                     "clubchilien.xyz",
-                     "http://localhost:3000",
-                     "http://localhost:8000",
-                     "127.0.0.1:8000",
-                     "127.0.0.1:3000",
-                     "127.0.0.1",
-                     ]
+    ALLOWED_HOSTS = [
+        "django.clubchilien.xyz",
+        "www.django.clubchilien.xyz",
+        "https://django.clubchilien.xyz",
+        "https://www.django.clubchilien.xyz"
+        "clubchilien.xyz",
+        "http://localhost:3000",
+        "http://localhost:8000",
+        "127.0.0.1:8000",
+        "127.0.0.1:3000",
+        "127.0.0.1",
+        ]
     
     CORS_ALLOWED_ORIGINS = [
         "https://django.clubchilien.xyz",
