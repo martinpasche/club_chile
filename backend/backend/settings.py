@@ -193,7 +193,9 @@ if DEBUG:
 
 else:
     ALLOWED_HOSTS = ["https://django.clubchilien.xyz",
+                     "https://www.django.clubchilien.xyz"
                      "django.clubchilien.xyz",
+                     "www.django.clubchilien.xyz",
                      "clubchilien.xyz",
                      "http://localhost:3000",
                      "http://localhost:8000",
