@@ -1,9 +1,5 @@
 import axios from 'axios';
-
-
-// axios.defaults.xsrfCookieName = 'csrftoken';
-//axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-//axios.defaults.withCredentials = true;
+import { DEBUG } from './config.js';
 
 export const getCookie = (name) => {
     let cookieValue = null;
@@ -19,11 +15,21 @@ export const getCookie = (name) => {
         }
     }
     return cookieValue;
-}
+};
 
-export default axios.create({
-    baseURL: `https://django.clubchilien.xyz`,
+const API = axios.create({
+    baseURL: DEBUG ? "http://127.0.0.1:8000" : `https://django.clubchilien.xyz`,
     withCredentials : true,
-    //xsrfHeaderName: 'X-CSRFToken',
-    //xsrfCookieName: 'csrftoken',
+    xsrfHeaderName: 'X-CSRFToken',
+    xsrfCookieName: 'csrftoken',
 });
+
+API.interceptors.request.use((config) => {
+    const token = getCookie('csrftoken');
+    if (token) {
+        config.headers['X-CSRFToken'] = token;
+    }
+    return config;
+}); 
+
+export default API;

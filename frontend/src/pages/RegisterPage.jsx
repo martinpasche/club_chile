@@ -6,9 +6,6 @@ import { AuthContext } from "../root";
 import ErrorMessageAccount from "../components/ErrorMessageAccount.jsx";
 import API from "../api.js";
 
-/* axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-axios.defaults.withCredentials = true; */
 
 
 const RegisterPage = () => {

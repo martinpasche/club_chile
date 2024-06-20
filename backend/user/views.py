@@ -98,7 +98,7 @@ class UserLogout (APIView):
         return response
             
             
-@method_decorator(ensure_csrf_cookie, name='dispatch')        
+#@method_decorator(ensure_csrf_cookie, name='dispatch')        
 class UserView (APIView):
     authentication_classes = [authentication.SessionAuthentication, ]
     permission_classes = [permissions.IsAuthenticated, ]

@@ -1,3 +1,4 @@
+import {DEBUG} from './config.js'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
@@ -16,6 +17,7 @@ import UserInventoryDestroyItem, {action as DestroyItemAction} from './pages/rou
 import UserInventoryItems, {loader as UserInventoryItemsLoader, action as UserInventoryItemsAction} from './pages/router_user_inventory/Items.jsx';
 import UserInvetoryUpdateItem, {loader as UserInventoryUpdateItemLoader} from './pages/router_user_inventory/UpdateItem.jsx';
 import reportWebVitals from './reportWebVitals';
+
 
 
 const router = createBrowserRouter([

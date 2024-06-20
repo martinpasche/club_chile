@@ -3,7 +3,7 @@ import { Form, redirect, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";    
 import { AuthContext } from "../root";
 import ErrorMessageAccount from "../components/ErrorMessageAccount";
-import API from "../api.js";
+import API, {getCookie} from "../api.js";
 
 
 
@@ -26,31 +26,28 @@ const LoginPage = () => {
                 {
                     email : email,
                     password : password
-                }
+                },
             );
-
+            
+            console.log("Seems like a good log in")
+            
             API
-            .get("/api-user/user/", {})
-            .then( (response) => {
-                //console.log("trying Loggin in", response);
-                if (response.data.user === undefined || response.data.user === null) {
-                    setIsLogged(false);
-                }
-                else {
-                    setIsLogged(true);
-                    setUser(response.data.user);
-                    localStorage.setItem("user", JSON.stringify(response.data.user));
-                    navigate("/");
-                }
+                .get("/api-user/user/",{})
+                .then(
+                    console.log("No error reported while getting the user")
+                )            
+                .catch((error) =>{
+                    console.log("Error while in LoginPage /api-user/user/")
+                    console.log(error); 
+                })
                 
-            })
-            .catch( (error) => {
-                localStorage.removeItem("user");
-                setIsLogged(false);
-                console.log("User not logged in");
-            });
             
-            
+            if (response.status == 200){
+                setIsLogged(true);
+                navigate("/")
+            } else {
+                console.log("There has being an error while logging");
+            }
             
 
         } catch (error) {
@@ -59,7 +56,7 @@ const LoginPage = () => {
             } else {
                 setError("An error occurred. Please try again.");
             }
-        }
+        }        
     }
 
 

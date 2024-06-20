@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-op6-4^zi*=+qb7efadh))+-ani1h^&dg0d3hu41gnkp##1=y)$"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 AUTHENTICATION_BACKENDS = [
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.cookies.SessionCookieSameSiteWorkaround",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -179,16 +180,40 @@ if DEBUG:
         "https://*.clubchilien.xyz",
     ]
     
+    CORS_ORIGIN_ALLOW_ALL = True
+    
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_HTTPONLY = True
+    CSRF_COOKIE_HTTPONLY = False
+    SESSION_COOKIE_HTTPONLY = False
     #STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
     #MEDIA_ROOT = "/home/clubxkhj/public_html/media-django"
-    CSRF_COOKIE_SAMESITE = "None"
-    SESSION_COOKIE_SAMESITE = "None"
-    CORS_ORIGIN_ALLOW_ALL = False
+    CSRF_COOKIE_SAMESITE = 'None'
+    SESSION_COOKIE_SAMESITE = 'None'
+    CORS_ORIGIN_ALLOW_ALL = True
+    CSRF_COOKIE_NAME = "csrftoken"
+    
+    
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    
     MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+    SERVER_EMAIL = "server@django.clubchilien.xyz"
+    DEFAULT_FROM_EMAIL = "server@django.clubchilien.xyz"
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    #EMAIL_FILE_PATH = "/home/clubxkhj/club_chile/backend/emails"
+    EMAIL_HOST = "django.clubchilien.xyz"
+    EMAIL_PORT = 465
+    EMAIL_USE_SSL = True
+    EMAIL_HOST_USER = "server@django.clubchilien.xyz"
+    EMAIL_HOST_PASSWORD = "Sugarglider0680"
+    
+    ADMINS = [
+        ('Martin', 'martin.pasche@student-cs.fr'),
+    ]
+    
     
 
 else:
@@ -253,9 +278,11 @@ else:
     SESSION_COOKIE_HTTPONLY = True
     CSRF_COOKIE_SAMESITE = "None"
     SESSION_COOKIE_SAMESITE = "None"
-    CORS_ORIGIN_ALLOW_ALL = False
+    CORS_ORIGIN_ALLOW_ALL = True
     CSRF_COOKIE_DOMAIN = "clubchilien.xyz"
     CSRF_COOKIE_NAME = "csrftoken"
+    CSRF_COOKIE_AGE = 1 * 3600
+    SESSION_COOKIE_AGE = 1 * 3600 
     
     STATIC_ROOT = '/home/clubxkhj/public_html/static-django'
     MEDIA_ROOT = '/home/clubxkhj/media.clubchilien.xyz/'
@@ -264,7 +291,7 @@ else:
     
     SERVER_EMAIL = "server@django.clubchilien.xyz"
     DEFAULT_FROM_EMAIL = "server@django.clubchilien.xyz"
-    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackensd"
     #EMAIL_FILE_PATH = "/home/clubxkhj/club_chile/backend/emails"
     EMAIL_HOST = "django.clubchilien.xyz"
     EMAIL_PORT = 465
@@ -276,11 +303,6 @@ else:
         ('Martin', 'martin.pasche@student-cs.fr'),
     ]
     
-
-
-
-if DEBUG:
-    CORS_ORIGIN_ALLOW_ALL = True
 
     
 CORS_ALLOW_CREDENTIALS = True

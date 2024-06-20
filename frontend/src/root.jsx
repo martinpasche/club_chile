@@ -8,7 +8,6 @@ import API, {getCookie} from './api.js';
 
 
 
-
 const media_path = ""
 const user_default_state = {
     username : null,
@@ -24,6 +23,7 @@ export const AuthContext = createContext(null);
 export default function Root () {
 
     const [user, setUser] = useState(user_default_state);
+    const [userChanges, setUserChanges] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
     const navigate = useNavigate()
 
@@ -31,11 +31,11 @@ export default function Root () {
     /* we want to control the top navbar */
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visibleNavBar, setVisibleNavBar] = useState(true);  
-
     
 
-    
     const handleLogout = async (e) => {
+        
+        console.log("Starting logout")
         
         // we are going to check if an item exists in localstorage
         const storedUser = localStorage.getItem("user");
@@ -43,18 +43,9 @@ export default function Root () {
             localStorage.removeItem("user");
         }
         
-        let csrftoken = getCookie('csrftoken');  
-        
         API
             .post(
                 "/api-user/logout/", {},
-                { headers: 
-                    {
-                    'X-CSRFToken': csrftoken,
-                },
-                xsrfHeaderName : 'X-CSRFToken',
-                xsrfCookieName : 'csrftoken',
-            }
             ).then( (response) => {
                 console.log("Logout successful");
                 setUser(user_default_state);
@@ -94,7 +85,8 @@ export default function Root () {
             setUser(JSON.parse(storedUser));
         }
             
-        else if (!isLogged) {
+        //else if (!isLogged) {
+        else {
             
             let csrftoken = getCookie('csrftoken');
             
@@ -127,11 +119,20 @@ export default function Root () {
             }
         }         
     }, [isLogged]);
+    
+    useEffect( () => {
+        if (userChanges === true){
+            setUserChanges(false);
+            window.location.reload();
+            
+        }
+    }, [userChanges])
+    
 
 
     return (
     <>
-    <AuthContext.Provider value={{user, setUser, isLogged, setIsLogged}}>
+    <AuthContext.Provider value={{user, setUser, isLogged, setIsLogged, userChanges, setUserChanges}}>
 
     {/* --------- Init navbar ----------- */}
     <div className={`navbar bg-base-100 z-50 fixed top-0 transition-transform ease-in-out duration-500 ${visibleNavBar ? '' : '-translate-y-20'} `}>
@@ -139,8 +140,11 @@ export default function Root () {
             <div className="dropdown">
                 
             <div tabIndex="0" role="button" className="btn btn-ghost lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
             </div>
+
             
             {/* small screen */}
             <ul tabIndex="0" className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
